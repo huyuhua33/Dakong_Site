@@ -40,13 +40,21 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
+# Installed apps
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'parler',  # For multilingual support
+    'rest_framework',  # For API support
+    'WebSite',
+    'Account',
+    'News',
+    'Products',
+    'Media',
 ]
 
 MIDDLEWARE = [
@@ -115,6 +123,27 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
+
+# Language settings
+LANGUAGES = [
+    ('en', 'English'),
+    ('zh', 'Chinese'),
+    ('tr', 'Turkish'),
+    # Additional languages can be added dynamically
+]
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'en'
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'zh'},
+        {'code': 'tr'},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
 
 LANGUAGE_CODE = "en-us"
 
